@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_upcoming"
-        android:name="com.example.mdbforgloo.ui.upcoming.NotificationsFragment"
+        android:name="com.example.mdbforgloo.ui.upcoming.UpcomingFragment"
         android:label="@string/title_upcoming"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

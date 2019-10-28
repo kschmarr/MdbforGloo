@@ -23,7 +23,7 @@ class NowPlayingAdapter :
                                     viewType: Int): NowPlayingViewHolder {
         // create a new view
         val layout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.top_rated_item, parent, false)
+            .inflate(R.layout.now_playing_item, parent, false)
         return NowPlayingViewHolder(layout)
     }
 
@@ -34,7 +34,6 @@ class NowPlayingAdapter :
         val voteText = "Average Rating: ${data.vote_average}"
         holder.itemView.findViewById<TextView>(R.id.movieTitle).text = data.title
         holder.itemView.findViewById<TextView>(R.id.movieAverageVote).text = voteText
-        holder.itemView.findViewById<TextView>(R.id.movieReleaseDate).text = releaseText
         val moviePoster = holder.itemView.findViewById<ImageView>(R.id.moviePoster)
         val baseURL = "https://image.tmdb.org/t/p/w185"
         Glide.with(holder.itemView.context).load("$baseURL${data.poster_path}").fitCenter().into(moviePoster)
