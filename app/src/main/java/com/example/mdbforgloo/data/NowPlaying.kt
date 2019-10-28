@@ -1,8 +1,9 @@
 package com.example.mdbforgloo.data
 
-data class TopRated(
+data class NowPlaying(
+    val dates: Dates,
     val page: Int,
-    val results: List<TopRatedResult>,
+    val results: List<NowPlayingResult>,
     val total_pages: Int,
     val total_results: Int
 )

@@ -1,5 +1,7 @@
-package com.example.mdbforgloo.ui.topRated
+package com.example.mdbforgloo.ui.nowPlaying
 
+import com.example.mdbforgloo.ui.nowPlaying.NowPlayingAdapter
+import com.example.mdbforgloo.ui.nowPlaying.NowPlayingViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,17 +14,17 @@ import com.example.mdbforgloo.R
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
 import kotlinx.android.synthetic.main.fragment_top_rated.*
 
-class TopRatedFragment : Fragment() {
+class NowPlayingFragment : Fragment() {
 
-    private lateinit var topRatedViewModel: TopRatedViewModel
-    private lateinit var adapter: TopRatedAdapter
+    private lateinit var nowPlayingViewModel: NowPlayingViewModel
+    private lateinit var adapter: NowPlayingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        topRatedViewModel = ViewModelProviders.of(this).get(TopRatedViewModel::class.java)
+        nowPlayingViewModel = ViewModelProviders.of(this).get(NowPlayingViewModel::class.java)
         return inflater.inflate(R.layout.fragment_top_rated, container, false)
     }
 
@@ -32,16 +34,16 @@ class TopRatedFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
         recyclerView.addItemDecoration(
             HorizontalDividerItemDecoration.Builder(activity)
-            .colorResId(R.color.grey_light)
-            .sizeResId(R.dimen.divider_height)
-            .marginResId(R.dimen.divider_left_margin, R.dimen.divider_right_margin).build())
-        adapter = TopRatedAdapter()
+                .colorResId(R.color.grey_light)
+                .sizeResId(R.dimen.divider_height)
+                .marginResId(R.dimen.divider_left_margin, R.dimen.divider_right_margin).build())
+        adapter = NowPlayingAdapter()
         recyclerView.adapter = adapter
         subscribeUi()
     }
 
     private fun subscribeUi() {
-        topRatedViewModel.topRated.observe(viewLifecycleOwner, Observer {
+        nowPlayingViewModel.nowPlaying.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it.results)
         })
     }

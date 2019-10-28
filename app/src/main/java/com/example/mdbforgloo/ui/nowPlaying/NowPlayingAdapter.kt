@@ -1,4 +1,4 @@
-package com.example.mdbforgloo.ui.topRated
+package com.example.mdbforgloo.ui.nowPlaying
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,25 +10,25 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mdbforgloo.R
-import com.example.mdbforgloo.data.TopRatedResult
+import com.example.mdbforgloo.data.NowPlayingResult
 
-class TopRatedAdapter :
-    ListAdapter<TopRatedResult, TopRatedAdapter.TopRatedViewHolder>(TopRatedDiffCallback()) {
+class NowPlayingAdapter :
+    ListAdapter<NowPlayingResult, NowPlayingAdapter.NowPlayingViewHolder>(NowPlayingDiffCallback()) {
 
-    class TopRatedViewHolder(layout: View) : RecyclerView.ViewHolder(layout)
+    class NowPlayingViewHolder(layout: View) : RecyclerView.ViewHolder(layout)
 
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): TopRatedViewHolder {
+                                    viewType: Int): NowPlayingViewHolder {
         // create a new view
         val layout = LayoutInflater.from(parent.context)
             .inflate(R.layout.top_rated_item, parent, false)
-        return TopRatedViewHolder(layout)
+        return NowPlayingViewHolder(layout)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: TopRatedViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NowPlayingViewHolder, position: Int) {
         val data = getItem(position)
         val releaseText = "Release Date: ${data.release_date}"
         val voteText = "Average Rating: ${data.vote_average}"
@@ -42,17 +42,17 @@ class TopRatedAdapter :
 
 }
 
-private class TopRatedDiffCallback : DiffUtil.ItemCallback<TopRatedResult>() {
+private class NowPlayingDiffCallback : DiffUtil.ItemCallback<NowPlayingResult>() {
 
     override fun areItemsTheSame(
-        oldItem: TopRatedResult,
-        newItem: TopRatedResult): Boolean {
+        oldItem: NowPlayingResult,
+        newItem: NowPlayingResult): Boolean {
         return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(
-        oldItem: TopRatedResult,
-        newItem: TopRatedResult): Boolean {
+        oldItem: NowPlayingResult,
+        newItem: NowPlayingResult): Boolean {
         return oldItem == newItem
     }
 }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/moviePoster"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/movie_poster"
+        android:src="@drawable/ic_image_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/alert_dark_frame" />
+
+    <TextView
+        android:id="@+id/movieTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/movie_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@id/movieAverageVote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/moviePoster"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/movieReleaseDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/movie_release_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieAverageVote"
+        app:layout_constraintStart_toEndOf="@+id/moviePoster" />
+
+    <TextView
+        android:id="@+id/movieAverageVote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Average Vote"
+        app:layout_constraintStart_toEndOf="@+id/moviePoster"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/movieReleaseDate"
+
+        app:layout_constraintTop_toBottomOf="@+id/movieTitle"
+        tools:layout_editor_absoluteX="80dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,9 +10,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 
-object WebServiceManager {
-    val LOGTAG = WebServiceManager.javaClass.simpleName
-    const val BASE_URL = "https://api.themoviedb.org/3/movie"
+object ApiServiceManager {
+    val LOGTAG = ApiServiceManager.javaClass.simpleName
+    const val BASE_URL = "https://api.themoviedb.org/3/movie/"
     private var apiService: ApiService? = null
 
     private fun buildMoshi(): Moshi {
@@ -50,7 +50,7 @@ object WebServiceManager {
         return apiService!!
     }
 
-    fun releaseWebService() {
+    fun releaseApiService() {
         apiService = null
     }
 }

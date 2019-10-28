@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">MDb for Gloo</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="top_rated">Top Rated</string>
-    <string name="now_playing">Now Playing</string>
-    <string name="upcoming">Upcoming</string>
+    <string name="title_now_playing">Now Playing</string>
+    <string name="title_top_rated">Top Rated</string>
+    <string name="title_upcoming">Upcoming</string>
+    <string name="movie_poster">Movie Poster</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="movie_vote_avg">Vote Average</string>
+    <string name="movie_release_date">Release Date</string>
 </resources>
