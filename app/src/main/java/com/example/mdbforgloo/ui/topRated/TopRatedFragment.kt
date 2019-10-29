@@ -44,6 +44,7 @@ class TopRatedFragment : Fragment() {
     private fun subscribeUi() {
         topRatedViewModel.topRated.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it.results)
+            indeterminateBar.visibility = View.GONE
         })
     }
 }

@@ -10,16 +10,16 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("top_rated?api_key=cb2ed6c0aebdabd5ee7ed3643ff2129f&language=en-US")
+    @GET("top_rated")
     fun getTopRated(@Query("page") page: String): Call<TopRated>
 
-    @GET("now_playing?api_key=cb2ed6c0aebdabd5ee7ed3643ff2129f&language=en-US")
+    @GET("now_playing")
     fun getNowPlaying(@Query("page") page: String): Call<NowPlaying>
 
-    @GET("upcoming?api_key=cb2ed6c0aebdabd5ee7ed3643ff2129f&language=en-US")
+    @GET("upcoming")
     fun getUpcoming(@Query("page") page: String): Call<Upcoming>
 
-    @GET("{movieId}?api_key=cb2ed6c0aebdabd5ee7ed3643ff2129f&language=en-US")
+    @GET("{movieId}")
     fun getMovie(@Path("movieId") movieId: String): Call<Movie>
 
 }

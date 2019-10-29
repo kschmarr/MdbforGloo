@@ -6,8 +6,14 @@ import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 import com.example.mdbforgloo.BuildConfig
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.Interceptor
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.io.IOException
+import okhttp3.HttpUrl
+
+
 
 
 object ApiServiceManager {
@@ -26,13 +32,27 @@ object ApiServiceManager {
 
         builder.readTimeout(30, TimeUnit.SECONDS)
             .connectTimeout(30, TimeUnit.SECONDS)
+        builder.addInterceptor(object : Interceptor {
+            override fun intercept(chain: Interceptor.Chain): Response {
+                val original = chain.request()
+                val originalHttpUrl = original.url
+
+                val url = originalHttpUrl.newBuilder()
+                    .addQueryParameter("api_key", "cb2ed6c0aebdabd5ee7ed3643ff2129f")
+                    .addQueryParameter("language", "en-US")
+                    .build()
+
+                val requestBuilder = original.newBuilder()
+                    .url(url)
+                val request = requestBuilder.build()
+                return chain.proceed(request)
+            }
+        })
         if (BuildConfig.DEBUG) {
             val interceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
-
-            builder.addInterceptor(interceptor)
+            builder.addNetworkInterceptor(interceptor)
         }
-
         return builder.build()
     }
 

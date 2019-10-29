@@ -50,6 +50,8 @@ class MovieFragment : Fragment() {
         context?.let {
             Glide.with(it).load("$baseURL${movie.poster_path}").fitCenter().into(moviePoster)
         }
+        scrollView.visibility = View.VISIBLE
+        indeterminateBar.visibility = View.GONE
     }
 
     companion object {

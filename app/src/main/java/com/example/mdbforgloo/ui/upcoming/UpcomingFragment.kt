@@ -44,6 +44,7 @@ class UpcomingFragment : Fragment() {
     private fun subscribeUi() {
         upcomingViewModel.upcoming.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it.results)
+            indeterminateBar.visibility = View.GONE
         })
     }
 }

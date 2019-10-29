@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mdbforgloo.R
 import kotlinx.android.synthetic.main.fragment_top_rated.*
+import kotlinx.android.synthetic.main.fragment_top_rated.indeterminateBar
 
 class NowPlayingFragment : Fragment() {
 
@@ -38,6 +39,7 @@ class NowPlayingFragment : Fragment() {
     private fun subscribeUi() {
         nowPlayingViewModel.nowPlaying.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it.results)
+            indeterminateBar.visibility = View.GONE
         })
     }
 }
