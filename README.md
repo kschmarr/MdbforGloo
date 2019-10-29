@@ -31,10 +31,10 @@ GET
 
 The app provides three sets of movies:  
 Top Rated, Now Playing, and Upcoming. Here are two of those screens:  
-<img src="images/TopRated.png">   
-<img src="images/NowPlaying.png">  
+<img src="images/TopRated.png" width="200">   
+<img src="images/NowPlaying.png" width="200">  
 When a user clicks on a movie they are taken to a Details screen:  
-<img src="images/Details.png">  
+<img src="images/Details.png" width="200">  
 
 ### Tech used
 
