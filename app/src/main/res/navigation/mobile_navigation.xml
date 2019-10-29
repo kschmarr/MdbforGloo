@@ -22,4 +22,17 @@
         android:name="com.example.mdbforgloo.ui.upcoming.UpcomingFragment"
         android:label="@string/title_upcoming"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/movie_fragment"
+        android:name="com.example.mdbforgloo.ui.movie.MovieFragment"
+        android:label="@string/title_movie"
+        tools:layout="@layout/fragment_movie">
+        <argument
+            android:name="movieId"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
+    </fragment>
+
 </navigation>

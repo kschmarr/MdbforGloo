@@ -1,5 +1,6 @@
 package com.example.mdbforgloo.ui.nowPlaying
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +30,7 @@ class NowPlayingFragment : Fragment() {
 
         val layoutManager = GridLayoutManager(activity, 2)
         recyclerView.layoutManager = layoutManager
-        adapter = NowPlayingAdapter()
+        adapter = NowPlayingAdapter(activity as Activity)
         recyclerView.adapter = adapter
         subscribeUi()
     }

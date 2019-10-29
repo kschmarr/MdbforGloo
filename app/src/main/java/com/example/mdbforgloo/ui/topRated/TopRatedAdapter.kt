@@ -1,18 +1,22 @@
 package com.example.mdbforgloo.ui.topRated
 
+import android.app.Activity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.ListAdapter
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mdbforgloo.R
 import com.example.mdbforgloo.data.TopRatedResult
+import com.example.mdbforgloo.ui.movie.MovieFragment
 
-class TopRatedAdapter :
+class TopRatedAdapter(private val activity: Activity) :
     ListAdapter<TopRatedResult, TopRatedAdapter.TopRatedViewHolder>(TopRatedDiffCallback()) {
 
     class TopRatedViewHolder(layout: View) : RecyclerView.ViewHolder(layout)
@@ -36,6 +40,11 @@ class TopRatedAdapter :
         val moviePoster = holder.itemView.findViewById<ImageView>(R.id.moviePoster)
         val baseURL = "https://image.tmdb.org/t/p/w185"
         Glide.with(holder.itemView.context).load("$baseURL${data.poster_path}").fitCenter().into(moviePoster)
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt(MovieFragment.ARG_MOVIE_ID, data.id)
+            activity.findNavController(R.id.nav_host_fragment).navigate(R.id.movie_fragment, bundle)
+        }
     }
 
 }

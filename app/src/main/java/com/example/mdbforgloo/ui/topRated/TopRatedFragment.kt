@@ -1,5 +1,6 @@
 package com.example.mdbforgloo.ui.topRated
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +36,7 @@ class TopRatedFragment : Fragment() {
             .colorResId(R.color.grey_light)
             .sizeResId(R.dimen.divider_height)
             .marginResId(R.dimen.divider_left_margin, R.dimen.divider_right_margin).build())
-        adapter = TopRatedAdapter()
+        adapter = TopRatedAdapter(activity as Activity)
         recyclerView.adapter = adapter
         subscribeUi()
     }

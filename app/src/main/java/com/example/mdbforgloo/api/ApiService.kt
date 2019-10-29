@@ -6,6 +6,7 @@ import com.example.mdbforgloo.data.TopRated
 import com.example.mdbforgloo.data.Upcoming
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -17,5 +18,8 @@ interface ApiService {
 
     @GET("upcoming?api_key=cb2ed6c0aebdabd5ee7ed3643ff2129f&language=en-US")
     fun getUpcoming(@Query("page") page: String): Call<Upcoming>
+
+    @GET("{movieId}?api_key=cb2ed6c0aebdabd5ee7ed3643ff2129f&language=en-US")
+    fun getMovie(@Path("movieId") movieId: String): Call<Movie>
 
 }
